@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Dive Log (jQuery)</title>
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        
+    </head>
+    <body>
+        
+        <div class="container-fluid">
+            <h1>My Latest Dives (jQuery)</h1>
+            <div class="row" id="logbook">
+            </div>
+        </div>
+
+        <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="../js/dives.js" type="text/javascript"></script>
+        
+        <script>
+            $(document).ready(function() {
+                for (var i=0; i < dives.length; i++) {
+                    
+                    var dive = dives[i];
+                    $("#logbook").append(
+                            "<div class='col-sm-4'>" +
+                            "<h3>" + dive.site + "</h3>" +
+                            "<h4>" + dive.location + "</h4>" +
+                            "<h2>" + dive.depth + " feet | " + dive.time + " min</h2>" +
+                            "</div>");                            
+                }
+            });
+        </script>
+        
+    </body>
+</html>

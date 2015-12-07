@@ -1,0 +1,8 @@
+{
+    "name": "Exercise-01-01",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "bdmills",
+    "contributors": [],
+    "dependencies": {}
+}
