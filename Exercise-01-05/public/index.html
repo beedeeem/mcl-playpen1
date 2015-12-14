@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="diveLog">
+    <head>
+        <title>Dive Log (ng-controller)</title>
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        
+        <div class="container">
+            <h1>My Latest Dives (ng-controller)</h1>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-8">
+                    <input class="form-control input-lg"
+                           placeholder="Search"
+                           ng-model="searchKey"
+                </div>
+            </div>
+            <div class="row" ng-controller="diveLogCtrl">
+                
+                <div class="col-sm-4"
+                    ng-repeat="dive in dives | filter:searchKey">
+                    <h3>{{dive.site}}</h3>
+                    <h4>{{dive.location}}</h4>
+                    <h2>{{dive.depth}} feet | {{dive.time}} min</h2>
+                </div>
+            </div>
+        </div>
+
+        <script src="../node_modules/angular/angular.js" type="text/javascript"></script>
+        <script src="../js/dives.js" type="text/javascript"></script>
+        
+        <script>
+            angular.module('diveLog', []).controller('diveLogCtrl', DiveLogCtrl);
+        
+            function DiveLogCtrl($scope) {
+                $scope.dives = dives;
+            }
+            
+        </script>
+        
+        
+    </body>
+</html>
