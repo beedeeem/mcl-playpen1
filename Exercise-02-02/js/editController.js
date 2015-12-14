@@ -8,6 +8,11 @@ angular.module('maintenance', [])
 
 function SiteEditCtrl($scope) {
     $scope.sites = sites;
+    setView('list');
+    
+    function setView(view) {
+        $scope.view = view;
+    } 
 }
 
 

@@ -12,7 +12,7 @@ function SiteEditCtrl($scope) {
     
     function setView(view) {
         $scope.view = view;
-    }
+    } 
 }
 
 
