@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="maintenance">
+    <head>
+        <title>Dive Sites</title>
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .oddRow {
+                background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" ng-controller="siteEditCtrl">
+            <h1>Dive Sites Maintenance</h1>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary btn-lg">
+                        Add new dive
+                    </button>
+                </div>
+            </div>
+            
+            <h2>List of Dive Sites</h2>
+            <div class="row" 
+                 ng-repeat="site in sites"
+                 ng-class="{oddRow: $index %2 == 0}">
+                <div class="col-sm-8">
+                    <h4>{{$index + 1}} : {{site}}</h4>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px;">
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm">Edit</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="../node_modules/angular/angular.js" type="text/javascript"></script>
+        <script src="../js/sites.js" type="text/javascript"></script>
+        <script src="../js/editController.js" type="text/javascript"></script>
+    </body>
+</html>
