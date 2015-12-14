@@ -1,0 +1,13 @@
+{
+    "name": "Exercise-01-01",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "bdmills",
+    "contributors": [],
+    "dependencies": {
+        "bootstrap": ">= 3.3.6",
+        "connect": ">= 3.4.0",
+        "serve-static": ">= 1.10.0",
+        "angular": "1.4.8"
+    }
+}
