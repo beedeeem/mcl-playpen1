@@ -31,11 +31,14 @@ and open the template in the editor.
                 
                 <div class="collapse navbar-collapse" id="adminMenu">
                     <ul class="nav navbar-nav">
-                        <li ng-class="{active: isActive('Locations')}">
+                        <li yw-menu-id = 'Locations'>
                             <a href="#/locations">Locations</a>
                         </li>
-                        <li ng-class="{active: isActive('Sites')}">
+                        <li yw-menu-id = 'Sites'>
                             <a href="#/sites">Dive Sites</a>
+                        </li>
+                        <li yw-menu-id = 'Types'>
+                            <a href="#/types">Dive Types</a>
                         </li>
                     </ul>
                 </div>
@@ -44,7 +47,7 @@ and open the template in the editor.
         
         <!-- Optional Title Bar -->
         <div class="current-spot">
-            <div class="container-fluid" >
+            <div class="container-fluid" ng-show="!isActive('')">
                 <div class="container">
                     <h3>{{getTitle()}}</h3>
                 </div>
