@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="maintenance">
+    <head>
+        <title>Dive Sites</title>
+        <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/site.css" rel="stylesheet" type="text/css"/>
+    </head>
+    
+    <body ng-controller="adminCtrl">
+
+        <!-- Navigation header -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse"
+                        data-target="#adminMenu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar">Toggle navigation</span>
+                    <span class="icon-bar">Toggle navigation</span>
+                    <span class="icon-bar">Toggle navigation</span>
+                </button>
+                
+                <a class="navbar-brand" href='#'
+                   ng-click="showMain()">
+                    Younderwater Admin
+                </a>
+                
+                <div class="collapse navbar-collapse" id="adminMenu">
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{active: isActive('Locations')}">
+                            <a href="#" ng-click="showLocations()">Locations</a>
+                        </li>
+                        <li ng-class="{active: isActive('Sites')}">
+                            <a href="#" ng-click="showDiveSites()">Dive Sites</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Optional Title Bar -->
+        <div class="current-spot">
+            <div class="container-fluid">
+                <div class="container">
+                    <div ng-show="view=='locations'">
+                        <h3>Manage the list of diving locations</h3>
+                    </div>
+                    <div ng-show="view=='diveSites'">
+                        <h3>Manage the list of dive sites</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- View content -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="container">
+                     <div ng-show="view=='main'">
+                        <h3>Main content</h3>
+                    </div>
+                     <div ng-show="view=='locations'">
+                        <h3>Locations content</h3>
+                    </div>
+                    <div ng-show="view=='diveSites'">
+                        <h3>Dive Sites content</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Javascript -->
+        <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../node_modules/angular/angular.min.js" type="text/javascript"></script>
+        <script src="../js/maintenance.js" type="text/javascript"></script>
+        
+    </body>
+</html>
