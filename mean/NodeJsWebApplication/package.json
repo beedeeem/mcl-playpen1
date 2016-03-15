@@ -1,0 +1,21 @@
+{
+    "name": "NodeJsWebApplication",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "bdmills",
+    "contributors": [],
+    "dependencies": {
+        "express": "latest",
+        "morgan": "latest",
+        "compression": "latest",
+        "body-parser": "latest",
+        "method-override": "latest",
+        "ejs": "latest",
+        "express-session": "latest",
+        "mongoose": "latest",
+        "passport": "latest",
+        "passport-local": "latest",
+        "crypto": "latest",
+        "connect-flash": "latest"
+    }
+}
