@@ -13,9 +13,11 @@
   "dependencies": {
     "express": "latest",
     "express-handlebars": "latest",
+    "express-session": "latest",
     "jquery": "latest",
     "body-parser": "latest",
-    "bootstrap": "latest"
+    "bootstrap": "latest",
+    "cookie-parser": "latest"
   },
   "devDependencies": {
     "chai": "latest",

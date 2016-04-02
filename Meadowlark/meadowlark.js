@@ -3,6 +3,14 @@ var express = require('express');
 
 var app = express();
 
+var credentials = require('./credentials');
+app.use(require('cookie-parser')(credentials.cookieSecret));
+app.use(require('express-session')({
+    resave: false,
+    saveUninitialized: false,
+    secret: credentials.cookieSecret
+})   );
+
 var handlebars = require('express-handlebars')
 	.create({ defaultLayout:'main' });
 app.engine('handlebars', handlebars.engine);
@@ -20,6 +28,9 @@ app.use(setTesting);
 
 //body parsing
 app.use(require('body-parser').urlencoded({encoded: true}));
+
+
+app.use(clearFlashToLocal);
 
 
 // define proper routes
@@ -41,11 +52,21 @@ app.get('/thank-you', function(req, res) {
     res.render('thank-you');
 });
 
+app.get('/no-thank-you', function(req, res) {
+    res.render('no-thank-you');
+});
+
 app.use(show500);
 app.use(show404);
 
+function clearFlashToLocal(req, res, next) {
+    res.locals.flash = req.session.flash;
+    delete req.session.flash;
+    next();
+}
 
 function showNewsletterForm(req, res) {
+    res.cookie('monster','nom nom');
     res.render('newsletter', {csrf: 'CSRF token will go here'});
 }
 
@@ -55,6 +76,18 @@ function processNewsletterForm(req, res) {
     console.log('CSRF (from hidden field) : ' + req.body._csrf);
     console.log('Name (from visible field) : ' + req.body.name);
     console.log('Email (from visible field) : ' + req.body.email);
+    console.log('the cookie is ' + req.cookies.monster);
+    
+    var email = req.body.email;
+    
+    if (email === 'test@bad.com') {
+        req.session.flash = {
+            type: 'danger',
+            intro: 'Validation error!',
+            message: 'The email address you entered is bad!'
+        };
+        return res.redirect(303, '/no-thank-you');
+    }
     
     res.redirect(303, '/thank-you');
  
