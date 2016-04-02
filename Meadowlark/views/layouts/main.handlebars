@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<!--
+Copyright 2016 bdmills.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+    <head>
+        <title>Meadowlark Travel</title>
+        {{#if showTests}}
+            <link rel='stylesheet' href='/vendor/mocha.css'>
+        {{/if}}
+        <script src="/vendor/jquery.js" type="text/javascript"></script>
+        <link href="/vendor/bootstrap.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <a href="/"><img src="/img/logo.png" alt="Meadowlark Travel Logo"></a>
+        </header>
+        {{{body}}}
+        
+        {{#if showTests}}
+            <div id='mocha'></div>
+            <script src="/vendor/mocha.js" type="text/javascript"></script>
+            <script src="/vendor/chai.js" type="text/javascript"></script>
+            <script>
+                mocha.ui('tdd');
+                var assert = chai.assert;
+            </script>
+            
+            <script src="/qa/tests-global.js" type="text/javascript"></script>
+            {{#if pageTestScript}}
+                <script src='{{pageTestScript}}'></script>
+            {{/if}}
+            
+            <script>mocha.run();</script>
+        {{/if}}
+    </body>
+</html>

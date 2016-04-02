@@ -4,5 +4,13 @@
     "keywords": ["util", "functional", "server", "client", "browser"],
     "author": "bdmills",
     "contributors": [],
-    "dependencies": {}
+    "scripts": {
+        "populate": "node ./bin/populate_db"
+    },
+    "dependencies": {
+        "colors": "latest",
+        "mongoose": "latest",
+        "mongoose-post-find": "latest",
+        "async": "latest"
+    }
 }
